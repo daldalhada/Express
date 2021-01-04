@@ -6,8 +6,8 @@ Express Framework Review
 
 <br>
 
-## 1. Node.js
-## 2. 자바스크립트 기본 문법
+### 1. Node.js
+### 2. 자바스크립트 기본 문법
 ## 3. Node의 기능
 ## 4. htpp 모듈로 서버 만들기
 ## 5. 패키지 매니저
