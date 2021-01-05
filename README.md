@@ -16,6 +16,7 @@ Express Framework Review
   - [1-2 Node.js 특징](https://github.com/daldalhada/Express/blob/main/description/1/1-2.md)
   - [1-3 Node.js 역할](https://github.com/daldalhada/Express/blob/main/description/1/1-3.md)
 ### 2. Javascript 기본 문법
+  - [2-1 호출 스택](https://github.com/daldalhada/Express/blob/main/description/2/2-1.md)
 ### 3. Node의 기능
 ### 4. htpp 모듈로 서버 만들기
 ### 5. 패키지 매니저
