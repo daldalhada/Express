@@ -2,6 +2,11 @@
 
 Express Framework Review
 
+* Environment
+
+    - Node.js: 14.15.4(LTS)
+    - OS: Window10
+
 ***
 
 <br>
