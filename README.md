@@ -21,6 +21,7 @@ Express Framework Review
   - [2-3 Javascript EX2015+ (2)](https://github.com/daldalhada/Express/blob/main/description/2/2-3.md)
 ### 3. Node의 기능
   - [3-1 Node 내장 기능 (1)](https://github.com/daldalhada/Express/blob/main/description/3/3-1.md)
+  - [3-2 Node 내장 기능 (2)](https://github.com/daldalhada/Express/blob/main/description/3/3-2.md)
 ### 4. htpp 모듈로 서버 만들기
 ### 5. 패키지 매니저
 ### 6. Express 웹 서버
