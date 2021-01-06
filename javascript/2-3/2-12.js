@@ -1,0 +1,21 @@
+const condition = true;
+const promise = new Promise((resolve, reject) => {
+    if(condition) {
+        resolve('성공');
+    } else {
+        reject('실패');
+    }
+});
+
+console.log('Promise 전에 출력');
+
+promise
+    .then((message) => {
+        console.log(message);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .finally(()=> {
+        console.log('무조건 실행');
+    })
