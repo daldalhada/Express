@@ -18,7 +18,7 @@ Express Framework Review
 ### 2. Javascript 기본 문법
   - [2-1 호출 스택 && 이벤트 루프](https://github.com/daldalhada/Express/blob/main/description/2/2-1.md)
   - [2-2 Javascript EX2015+ (1)](https://github.com/daldalhada/Express/blob/main/description/2/2-2.md)
-  - [2-3 Javascript EX2015+ (2)](https://github.com/daldalhada/Express/blob/main/description/2/2-3.md)
+  - [2-3 Javascript EX2015+ (2)](https://github.com/daldalhad./Express/blob/main/description/2/2-3.md)
 ### 3. Node의 기능
   - [3-1 Node 내장 기능 (1)](https://github.com/daldalhada/Express/blob/main/description/3/3-1.md)
   - [3-2 Node 내장 기능 (2)](https://github.com/daldalhada/Express/blob/main/description/3/3-2.md)
