@@ -30,6 +30,7 @@ Express Framework Review
 ### 5. 패키지 매니저
   - [5-1 package.json](https://github.com/daldalhada/Express/blob/main/description/5/5-1.md)
 ### 6. Express 웹 서버
+  - [6-1 Express 기능 (1)](https://github.com/daldalhada/Express/blob/main/description/6/6-1.md)
 ### 7. Express-MySQL
 ### 8. Express-MongoDB
 ### 9. SNS 서비스 프로젝트
