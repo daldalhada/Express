@@ -28,6 +28,7 @@ Express Framework Review
   - [4-2 쿠키와 세션](https://github.com/daldalhada/Express/blob/main/description/4/4-2.md)
   - [4-3 [기타]](https://github.com/daldalhada/Express/blob/main/description/4/4-3.md)
 ### 5. 패키지 매니저
+  - [5-1 package.json](https://github.com/daldalhada/Express/blob/main/description/5/5-1.md)
 ### 6. Express 웹 서버
 ### 7. Express-MySQL
 ### 8. Express-MongoDB
