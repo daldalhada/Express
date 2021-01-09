@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const app = express();
 
@@ -10,24 +11,19 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(morgan('dev'));     // dev 대신 combined를 쓰면 더 자세해짐
 app.use(cookieParser('password'));
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: 'daldalhada',
+    cookie: {
+        httpOnly: true,
+    },
+}));
 app.use(express.json());    // bodyParser를 대체
-app.use(express.urlencoded({ extended: true }));    // true면 qs, false면 querystring
+app.use(express.urlencoded({ extended: true }));    // true면 qs, false면 querystrin
 
 app.get('/', (req, res) => {
-    req.body.name;
-
-    req.cookies;
-    req.signedCookies;      // 암호화된 쿠키
-
-    res.cookie('name', encodeURIComponent(name), {
-        expires: new Date(),
-        httpOnly: true,
-        path: '/',
-    })
-    res.clearCookie('name', encodeURIComponent(name), {
-        httpOnly: true,
-        path: '/',
-    })
+    req.session.id = 'hello';
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
