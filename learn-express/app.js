@@ -19,16 +19,42 @@ app.use(session({
         httpOnly: true,
     },
 }));
+
 app.use(express.json());    // bodyParser를 대체
-app.use(express.urlencoded({ extended: true }));    // true면 qs, false면 querystrin
+app.use(express.urlencoded({ extended: true }));    // true면 qs, false면 querystring
+
+const multer = require('multer');
+const fs = require('fs');
+
+// 서버 시작전에 uploads 폴더가 있는지 검색 후 없으면 생성
+try {
+  fs.readdirSync('uploads');
+} catch (error) {
+  console.error('uploads 폴더가 없어 uploads 폴더를 생성합니다.');
+  fs.mkdirSync('uploads');
+}
+
+const upload = multer({
+    storage: multer.diskStorage({
+      destination(req, file, done) {
+        done(null, 'uploads/');
+      },
+      filename(req, file, done) {
+        const ext = path.extname(file.originalname);
+        done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      },
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 },      // 5MB까지 허용
+});
 
 app.get('/', (req, res) => {
     req.session.id = 'hello';
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.post('/', (req, res) => {
-    res.send('hello express');
+app.post('/upload', upload.fields([{ name: 'image1', limits: 5}, { name: 'image2' }, { name: 'image3' }]), (req, res) => {
+    console.log(req.file);
+    res.send('ok');
 });
 
 app.get('/category/javascript', (req, res) => {
