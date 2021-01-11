@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
@@ -10,11 +13,11 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 app.use(morgan('dev'));     // dev 대신 combined를 쓰면 더 자세해짐
-app.use(cookieParser('password'));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
     resave: false,
     saveUninitialized: false,
-    secret: 'daldalhada',
+    secret: process.env.COOKIE_SECRET,
     cookie: {
         httpOnly: true,
     },
