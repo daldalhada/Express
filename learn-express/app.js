@@ -62,12 +62,16 @@ app.post('/upload', upload.fields([{ name: 'image1', limits: 5}, { name: 'image2
 });
 
 app.use((req, res, next) => {
-  res.status(404).send('Not Found');
+  const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
+  error.status = 404;
+  next(error);
 });
 
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).sned(err.message);
+  res.locals.message = err.message;
+  res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 app.listen(app.get('port'), () => {
