@@ -6,6 +6,8 @@ Express Framework Review
 
     - Node.js: 14.15.4(LTS)
     - OS: Window10
+    - Express: 4.17.1
+    - MySQL: 8.0.21
 
 ***
 
@@ -34,6 +36,8 @@ Express Framework Review
   - [6-2 Express 기능 (2)](https://github.com/daldalhada/Express/blob/main/description/6/6-2.md)
   - [6-3 Express 기능 (3)](https://github.com/daldalhada/Express/blob/main/description/6/6-3.md)
 ### 7. Express-MySQL
+  - [7-1 MySQL ](https://github.com/daldalhada/Express/blob/main/description/7/7-1.md)
+  - [7-2 시퀄라이즈](https://github.com/daldalhada/Express/blob/main/description/7/7-2.md)
 ### 8. Express-MongoDB
 ### 9. SNS 서비스 프로젝트
 ### 10. Web API 서버
