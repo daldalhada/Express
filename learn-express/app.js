@@ -7,6 +7,9 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
+
 const app = express();
 
 // 서버에 port라는 속성을 삽입(전역변수의 역할)
@@ -25,6 +28,9 @@ app.use(session({
 
 app.use(express.json());    // bodyParser를 대체
 app.use(express.urlencoded({ extended: true }));    // true면 qs, false면 querystring
+
+app.use('/', indexRouter);
+app.use('/user', userRouter);
 
 const multer = require('multer');
 const fs = require('fs');
@@ -50,32 +56,20 @@ const upload = multer({
     limits: { fileSize: 5 * 1024 * 1024 },      // 5MB까지 허용
 });
 
-app.get('/', (req, res) => {
-    req.session.id = 'hello';
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
-
 app.post('/upload', upload.fields([{ name: 'image1', limits: 5}, { name: 'image2' }, { name: 'image3' }]), (req, res) => {
     console.log(req.file);
     res.send('ok');
 });
 
-app.get('/category/javascript', (req, res) => {
-    res.send(`hello javascript`);
+app.use((req, res, next) => {
+  res.status(404).send('Not Found');
 });
 
-app.get('/category/java', (req, res) => {
-    res.send(`hello java`);
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).sned(err.message);
 });
-
-app.get('/category/:name', (req, res) => {
-    res.send(`hello ${req.params.name}`);
-});
-
-app.get('*', (req, res) => {
-    res.send('hello everyday');
-})
 
 app.listen(app.get('port'), () => {
-    console.log('express server on');
+    console.log(app.get('port'), '번 포트에서 대기 중');
 })
