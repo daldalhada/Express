@@ -42,6 +42,7 @@ Express Framework Review
   - [7-3 시퀄라이즈 (2)](https://github.com/daldalhada/Express/blob/main/description/7/7-3.md)
 ### 8. Express-MongoDB
   - [8-1 MongoDB](https://github.com/daldalhada/Express/blob/main/description/8/8-1.md)
+  - [8-2 몽구스(Mongoose)](https://github.com/daldalhada/Express/blob/main/description/8/8-2.md)
 ### 9. SNS 서비스 프로젝트
 ### 10. Web API 서버
 ### 11. 테스팅
