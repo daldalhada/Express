@@ -37,7 +37,6 @@ module.exports = class User extends Sequelize.Model {
     });
   }
 
-  // 외래키 설정
   static associate(db) {
     db.User.hasMany(db.Comment, { foreignKey: 'commenter', sourceKey: 'id' });
   }
