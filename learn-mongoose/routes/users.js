@@ -21,6 +21,17 @@ router.route('/')
         age: req.body.age,
         married: req.body.married,
       });
+      /*
+        이렇게도 가능
+
+        const user = new User({
+          name: req.body.name,
+          age: req.body.age,
+          married: req.body.married,
+        });
+        await user.save();
+
+      */
       console.log(user);
       res.status(201).json(user);
     } catch (err) {

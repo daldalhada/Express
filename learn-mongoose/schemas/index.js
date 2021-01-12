@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const connect = () => {
   if (process.env.NODE_ENV !== 'production') {
-    mongoose.set('debug', true);
+    mongoose.set('debug', true);      // true면 쿼리가 터미널 창에 뜸
   }
-  mongoose.connect('mongodb://root:nodejsbook@localhost:27017/admin', {
+  mongoose.connect('mongodb://daldalhada:network629@localhost:27017/admin', {
     dbName: 'nodejs',
     useNewUrlParser: true,
     useCreateIndex: true,
