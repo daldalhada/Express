@@ -5,10 +5,12 @@ const path = require('path');
 const session = require('express-session');
 const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
+const passport = require('passport');
 
 // dotenv는 최대한 위쪽에 놓아야 process.env의 변수값들을 사용할 수 있음 
 dotenv.config();
 const pageRouter = require('./routes/page');
+const authRouter = require('./routes/auth');
 const { sequelize } = require('./models');
 
 const app = express();
@@ -48,7 +50,13 @@ app.use(session({
   },
 }));
 
+
+// passport 미들웨어(라우터 전, 세션 후에 위치해야 함)
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', pageRouter);
+app.use('/auth', authRouter);
 
 // 404 처리 미들웨어(페이지 부재)
 app.use((req, res, next) => {
