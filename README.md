@@ -45,7 +45,7 @@ Express Framework Review
   - [8-2 몽구스(Mongoose)](https://github.com/daldalhada/Express/blob/main/description/8/8-2.md)
 ### 9. SNS 서비스 프로젝트
   - [9-1 프로젝트 개요](https://github.com/daldalhada/Express/blob/main/description/9/9-1.md)
-  - [9-2 프로젝트 기능](https://github.com/daldalhada/Express/blob/main/description/9/9-2.md)
+  - [9-2 프로젝트 기능(1) - Login](https://github.com/daldalhada/Express/blob/main/description/9/9-2.md)
 ### 10. Web API 서버
 ### 11. 테스팅
 ### 12. 웹 소켓
