@@ -9,6 +9,7 @@ const dotenv = require('dotenv');
 // dotenv는 최대한 위쪽에 놓아야 process.env의 변수값들을 사용할 수 있음 
 dotenv.config();
 const pageRouter = require('./routes/page');
+const { sequelize } = require('./models');
 
 const app = express();
 app.set('port', process.env.PORT || 8001);
@@ -19,6 +20,14 @@ nunjucks.configure('views', {
   express: app,
   watch: true,
 });
+
+sequelize.sync( { force: false })
+  .then(() => {
+    console.log('데이터베이스 연결 성공');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
