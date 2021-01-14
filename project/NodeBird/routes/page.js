@@ -7,9 +7,9 @@ const router = express.Router();
 // 같은 변수를 대부분의 라우터의 넣는 경우 변수를 따로 미들웨어로 뺌(중복 제거)
 router.use((req, res, next) => {
   res.locals.user = req.user;
-  res.locals.followerCount = 0;
-  res.locals.followingCount = 0;
-  res.locals.followerIdList = [];
+  res.locals.followerCount = req.user ? req.user.Followers.length : 0;
+  res.locals.followingCount = req.user ? req.user.Followings.length : 0;
+  res.locals.followerIdList = req.user ? req.user.Followings.map(f => f.id) : [];
   next();
 });
 
