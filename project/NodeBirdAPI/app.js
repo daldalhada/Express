@@ -7,6 +7,7 @@ const session = require('express-session');
 const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
 
+
 dotenv.config();
 const authRouter = require('./routes/auth');
 const indexRouter = require('./routes');
@@ -15,12 +16,15 @@ const passportConfig = require('./passport');
 
 const app = express();
 passportConfig();
+
 app.set('port', process.env.PORT || 8002);
 app.set('view engine', 'html');
+
 nunjucks.configure('views', {
   express: app,
   watch: true,
 });
+
 sequelize.sync({ force: false })
   .then(() => {
     console.log('데이터베이스 연결 성공');
@@ -43,6 +47,7 @@ app.use(session({
     secure: false,
   },
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
