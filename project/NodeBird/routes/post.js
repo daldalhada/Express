@@ -15,6 +15,7 @@ try {
   fs.mkdirSync('uploads');
 }
 
+// image upload
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, cb) {
@@ -35,6 +36,8 @@ router.post('/img', isLoggedIn, upload.single('img'), (req, res) => {
   res.json({ url: `/img/${req.file.filename}` });
 });
 
+
+//post upload
 const upload2 = multer();
 router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
   try {
