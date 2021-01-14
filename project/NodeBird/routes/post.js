@@ -22,6 +22,7 @@ const upload = multer({
     },
     filename(req, file, cb) {
       const ext = path.extname(file.originalname);
+      // 덮어 씌어지는 것을 막기 위해 Date.now() 추가
       cb(null, path.basename(file.originalname, ext) + Date.now() + ext);
     },
   }),
@@ -30,6 +31,7 @@ const upload = multer({
 
 router.post('/img', isLoggedIn, upload.single('img'), (req, res) => {
   console.log(req.file);
+  // 실제 img 주소(upload)와 요청 주소(img)가 다름 ==> public 미들웨어
   res.json({ url: `/img/${req.file.filename}` });
 });
 
