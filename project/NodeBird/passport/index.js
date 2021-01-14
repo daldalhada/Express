@@ -5,13 +5,24 @@ const User = require('../models/user');
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
-    done(null, user.id);      // 세션에 user의 id만 저장
+    done(null, user.id);
   });
 
   passport.deserializeUser((id, done) => {
-    User.findOne({ where: { id } })
-       // req.user로 접근하거나 req.isAuthenticated() 함수가 true
-      .then(user => done(null, user))   
+    User.findOne({
+      where: { id },
+      include: [{
+        // model: Post
+        model: User,
+        attributes: ['id', 'nick'],
+        as: 'Followers',
+      }, {
+        model: User,
+        attributes: ['id', 'nick'],
+        as: 'Followings',
+      }],
+    })
+      .then(user => done(null, user))
       .catch(err => done(err));
   });
 
