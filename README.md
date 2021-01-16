@@ -52,7 +52,7 @@ Express Framework Review
   - [10-2 호출 서버](https://github.com/daldalhada/Express/blob/main/description/10/10-2.md)
 ### 11. 테스팅
   - [11-1 테스트 (1)](https://github.com/daldalhada/Express/blob/main/description/11/11-1.md)
-  - [11-1 테스트 (2)](https://github.com/daldalhada/Express/blob/main/description/11/11-1.md)
+  - [11-2 테스트 (2)](https://github.com/daldalhada/Express/blob/main/description/11/11-2.md)
 ### 12. 웹 소켓
 ### 13. 실시간 경매 시스템 프로젝트
 ### 14. CLI 프로그램 
