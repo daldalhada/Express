@@ -54,7 +54,7 @@ Express Framework Review
   - [11-1 테스트 (1) - 단위 테스트, 모킹(mocking)](https://github.com/daldalhada/Express/blob/main/description/11/11-1.md)
   - [11-2 테스트 (2) - 통합 테스트, 부하 테스트](https://github.com/daldalhada/Express/blob/main/description/11/11-2.md)
 ### 12. 웹 소켓
-  - [12-1 Socket.IO](https://github.com/daldalhada/Express/blob/main/description/12/11-1.md)
+  - [12-1 Socket.IO](https://github.com/daldalhada/Express/blob/main/description/12/12-1.md)
 ### 13. 실시간 경매 시스템 프로젝트
 ### 14. CLI 프로그램 
 ### 15. AWS 배포
