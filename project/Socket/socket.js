@@ -1,12 +1,12 @@
 const WebSocket = require('ws');
 
-module.exports = (server) => {
+module.exports = (server) => {  
   const wss = new WebSocket.Server({ server });
 
   wss.on('connection', (ws, req) => { // 웹소켓 연결 시
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     console.log('새로운 클라이언트 접속', ip);
-    ws.on('message', (message) => { // 클라이언트로부터 메시지
+    ws.on('message', (message) => { // 클라이언트 메시지
       console.log(message);
     });
     ws.on('error', (error) => { // 에러 시
