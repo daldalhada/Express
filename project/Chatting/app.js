@@ -5,11 +5,12 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
+const ColorHash = require('color-hash');
 
 dotenv.config();
-const connect = require('./schemas');     // MongoDB Connect
 const webSocket = require('./socket');
 const indexRouter = require('./routes');
+const connect = require('./schemas');     // MongoDB Connect
 
 const app = express();
 app.set('port', process.env.PORT || 8005);
@@ -36,6 +37,14 @@ app.use(session({
   },
 }));
 
+app.use((req, res, next) => {           // room 안에서 사용자를 구별하기 위한 미들웨어
+  if(!req.session.color) {
+    const colorHash = new ColorHash();
+    req.session.color = colorHash.hex(req.sessionID);
+  }
+  next();
+});
+
 app.use('/', indexRouter);
 
 app.use((req, res, next) => {
@@ -55,4 +64,4 @@ const server = app.listen(app.get('port'), () => {
   console.log(app.get('port'), '번 포트에서 대기중');
 });
 
-webSocket(server);
+webSocket(server, app);     // app 추가 app.set 사용하기 위해 
