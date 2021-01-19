@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(session({
+const sessionMiddleware = session({
   resave: false,
   saveUninitialized: false,
   secret: process.env.COOKIE_SECRET,
@@ -35,7 +35,9 @@ app.use(session({
     httpOnly: true,
     secure: false,
   },
-}));
+});
+
+app.use(sessionMiddleware);
 
 app.use((req, res, next) => {           // room 안에서 사용자를 구별하기 위한 미들웨어
   if(!req.session.color) {
@@ -64,4 +66,4 @@ const server = app.listen(app.get('port'), () => {
   console.log(app.get('port'), '번 포트에서 대기중');
 });
 
-webSocket(server, app);     // app 추가 app.set 사용하기 위해 
+webSocket(server, app, sessionMiddleware);     // app 추가 app.set 사용하기 위해 
