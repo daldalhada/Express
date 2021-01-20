@@ -2,13 +2,21 @@
 
 Express Framework Review
 
-* Environment
+* develop Environment
 
     - Node.js: 14.15.4(LTS)
     - OS: Window10
     - Express: 4.17.1
     - MySQL: 8.0.21
     - MongoDB: 4.4.3
+
+* deploy Environment
+
+    - Platform: AWS Lightsail
+    - Node.js: 14.15.4(LTS)
+    - OS: Ubuntu 18.04.1 LTS
+    - Express: 4.17.1
+    - MySQL: 5.7.32
 
 ***
 
@@ -61,4 +69,5 @@ Express Framework Review
 ### 15. AWS 배포
   - [15-1 배포 준비를 위한 패키지](https://github.com/daldalhada/Express/blob/main/description/15/15-1.md)
   - [15-2 pm2, winston, redis](https://github.com/daldalhada/Express/blob/main/description/15/15-2.md)
+  - [15-3 AWS Lightsail](https://github.com/daldalhada/Express/blob/main/description/15/15-3.md)
 ### 16. 서버리스 
